@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TaskProvider } from "./context/TaskContext.jsx";
 import Home from "./pages/Home.jsx";
-import './App.css'
+import Toast from "./components/ui/Toast.jsx";
 
 function App() {
- return
- (
-    <TaskProvider>
-       <Home />
-    </TaskProvider>
- );
+  return (
+    <BrowserRouter>
+      <TaskProvider>
+        <Home />
+        <Toast />
+      </TaskProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;
