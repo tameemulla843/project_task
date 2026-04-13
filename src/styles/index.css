@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: 30 25% 97%;
+  --bg-secondary: 30 20% 100%;
+  --bg-card: 0 0% 100%;
+  --bg-column: 30 18% 95%;
+  --text-primary: 220 15% 22%;
+  --text-secondary: 220 8% 46%;
+  --text-muted: 220 6% 58%;
+  --border-color: 30 12% 89%;
+  --accent-blue: 215 55% 55%;
+  --accent-blue-light: 215 50% 94%;
+  --accent-green: 158 45% 45%;
+  --accent-green-light: 158 40% 92%;
+  --accent-orange: 28 70% 55%;
+  --accent-orange-light: 28 65% 93%;
+  --accent-red: 0 55% 58%;
+  --accent-red-light: 0 50% 94%;
+  --accent-purple: 260 40% 58%;
+  --accent-purple-light: 260 35% 93%;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --gradient-header: linear-gradient(135deg, hsl(215 50% 52%), hsl(260 40% 56%));
+}
+
+.dark {
+  --bg-primary: 222 47% 11%;
+  --bg-secondary: 217 33% 17%;
+  --bg-card: 215 28% 17%;
+  --bg-column: 217 33% 14%;
+  --text-primary: 210 40% 98%;
+  --text-secondary: 215 20% 65%;
+  --text-muted: 215 15% 50%;
+  --border-color: 217 20% 24%;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: hsl(var(--bg-primary));
+  color: hsl(var(--text-primary));
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--border-color));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--text-muted));
+  border-radius: 3px;
+}
+
+/* Task card animations */
+.task-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.3s ease;
+  will-change: transform;
+}
+.task-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Drag styles */
+.task-card.dragging {
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.column-drop-active {
+  background-color: hsl(var(--accent-blue-light)) !important;
+  border-style: dashed !important;
+}
+.dark .column-drop-active {
+  background-color: hsl(217 91% 20% / 0.3) !important;
+}
+
+/* Move arrows */
+.move-btn {
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+.move-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  transition: transform 0.3s ease;
+}
+.theme-toggle:hover {
+  transform: rotate(30deg);
+}

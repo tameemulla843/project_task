@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import { ClipboardList, LayoutDashboard, Settings as SettingsIcon, Sun, Moon } from "lucide-react";
-
-
+import TaskBoard from "../components/tasks/TaskBoard.jsx";
+import { THEME_KEY } from "../utils/constants.js";
+  import { ClipboardList, LayoutDashboard, Settings as SettingsIcon, Sun, Moon } from "lucide-react";
 
 function Home() {
   const [dark, setDark] = useState(() => {
@@ -16,9 +16,7 @@ function Home() {
   }, [dark]);
 
   const navItems = [
-    { to: "/", label: "Tasks", icon: ClipboardList },
-    { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { to: "/settings", label: "Settings", icon: SettingsIcon },
+    { to: "/", label: "Tasks", icon: ClipboardList }
   ];
 
   return (
@@ -63,6 +61,7 @@ function Home() {
       <main className="max-w-6xl mx-auto px-4 py-6">
         <Routes>
           <Route path="/" element={<TaskBoard />} />
+          
         </Routes>
       </main>
     </div>
